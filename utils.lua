@@ -23,7 +23,10 @@ M.cmds = {
 
 function M.UsageMessage(cmd)
 	local hl = M.hl
-	if cmd then
+	if cmd == "compile" then
+		function CompileUsageMsg()
+			print("bsq compile <FLAGS> <FILES>")
+		end
 	elseif cmd == "help" or cmd == nil then
 	print(hl.underline .. "Usage:" .. hl.flush .. " bsq [commands] [options]\n")
 	print(hl.bold .. "[Commands]" .. hl.flush)

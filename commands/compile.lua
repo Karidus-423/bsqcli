@@ -1,23 +1,25 @@
-local u = require('utils')
+local u = require("utils")
 local M = {}
-
-function CompileUsageMsg()
-	print("bsq compile <FLAGS> <FILES>")
-end
 
 function M.run(args, start, size)
 	if size == 0 then
-		CompileUsageMsg()
+		u.UsageMessage("compile")
 	end
-	local run_cmd = ""
-	local i = start
+
+	local run_args = ""
+	local i = start + 1
 	repeat
-		--Build the argument strings
-		run_cmd = run_cmd .. " ".. args[i]
+		run_args = run_args .. args[i] .. " "
 		i = i + 1
-	until i == (start + size)
-	io.popen('node "' .. u.settings["bosque.js"] .. run_cmd .. '"')
-	-- print(run_cmd)
+	until i > size
+
+	local run_cmd = "node " .. u.settings["bosque.js"] .. " " .. run_args
+	local res = io.popen(run_cmd)
+	if res then
+		local final = res:read("*a")
+		res:close()
+		print(final)
+	end
 end
 
 return M

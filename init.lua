@@ -1,5 +1,4 @@
 local setup = require("setup")
-local u = require("utils")
 
 function Main()
 	setup.InitCLI()
