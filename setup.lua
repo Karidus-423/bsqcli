@@ -1,4 +1,4 @@
-local cmd_compile = require("commands.compile")
+local run_cmd = require("commands.run")
 local u = require("utils")
 
 local M = {}
@@ -89,9 +89,9 @@ function M.ProcessArgs(args)
 		end
 
 		if c.cmd == "compile" then
-			cmd_compile.run(args, c.pos, size)
+			run_cmd.command(args, c.pos, size, u.settings["bosque.js"])
 		elseif c.cmd == "test" then
-			print("Test cmd: ", c.pos, size)
+			run_cmd.command(args, c.pos, size, u.settings["symtest.js"])
 		end
 	end
 end
