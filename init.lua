@@ -1,10 +1,11 @@
 local setup = require("setup")
+local utils = require("utils")
 
 function Main()
 	setup.InitCLI()
 
 	if arg[1] == nil then
-		setup.UsageMessage()
+		utils.UsageMessage()
 	end
 
 	setup.ProcessArgs(arg)

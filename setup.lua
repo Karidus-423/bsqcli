@@ -92,6 +92,8 @@ function M.ProcessArgs(args)
 			run_cmd.command(args, c.pos, size, u.settings["bosque.js"])
 		elseif c.cmd == "test" then
 			run_cmd.command(args, c.pos, size, u.settings["symtest.js"])
+		elseif c.cmd == "smt"then
+			run_cmd.command(args,c.pos,size,u.settings["analyze.js"])
 		end
 	end
 end
