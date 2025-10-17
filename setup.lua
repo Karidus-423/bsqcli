@@ -85,7 +85,7 @@ function M.ProcessArgs(args)
 		if next ~= nil then
 			size = (next.pos - 1) - c.pos
 		else --Last/ Only one action. Grab all the remaining args
-			size = #args - c.pos
+			size = #args
 		end
 
 		if c.cmd == "compile" then

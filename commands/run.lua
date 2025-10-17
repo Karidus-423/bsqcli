@@ -7,6 +7,7 @@ function M.command(args, start, size, cmd)
 	end
 
 	local run_args = ""
+	--Move start after 'cmd' word ex. compile
 	local i = start + 1
 	repeat
 		run_args = run_args .. args[i] .. " "
